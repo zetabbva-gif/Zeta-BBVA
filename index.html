@@ -3,15 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZETA — Tu dinero, por fin en tus manos</title>
-<meta name="description" content="ZETA, la app de banca joven respaldada por BBVA. Aprende, ahorra e invierte sin tecnicismos. Descárgala gratis.">
+<title>ZETA by BBVA | App de banca y ahorro para jóvenes</title>
+<meta name="description" content="Aprende a gestionar tu dinero, ahorra desde 1€ e invierte con cabeza. ZETA es la app de BBVA para la generación que empieza. Descárgala gratis.">
+<meta name="keywords" content="app banca jóvenes españa, ahorrar dinero jóvenes, invertir sin experiencia, educación financiera jóvenes, primera inversión, app ahorro gen z, banco digital millennials">
+<link rel="canonical" href="https://zeta.bbva.es/">
 <link rel="icon" type="image/png" href="assets/logo-zeta.png">
+
+<meta property="og:title" content="ZETA — Tu dinero, por fin en tus manos">
+<meta property="og:description" content="La app de BBVA para quien empieza. Aprende, ahorra e invierte sin tecnicismos.">
+<meta property="og:image" content="assets/pablo.png">
+<meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Hanken+Grotesk:wght@500&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "ZETA",
+  "description": "App de banca digital para jóvenes en España, respaldada por BBVA",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "FinanceApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "BBVA"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Simulador de ahorro e inversión gratuito ZETA",
+  "description": "Calcula cuánto tiempo necesitas para alcanzar tu objetivo financiero con ZETA",
+  "applicationCategory": "FinanceApplication",
+  "offers": { "@type": "Offer", "price": "0" }
+}
+</script>
 </head>
 <body>
 
@@ -25,9 +62,9 @@
     </a>
 
     <nav class="nav-links" aria-label="Navegación principal" id="nav-links">
-      <a href="#que-es" data-nav-link>Qué es ZETA</a>
+      <a href="#que-es" data-nav-link>¿Qué es ZETA?</a>
       <a href="#porque" data-nav-link>¿Por qué ZETA?</a>
-      <a href="#control" data-nav-link>Ten el control</a>
+      <a href="#control" data-nav-link>Toma el control</a>
       <a href="#simulador" data-nav-link>Simulador</a>
     </nav>
 
@@ -43,9 +80,9 @@
   <!-- Mobile drawer -->
   <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
     <nav aria-label="Navegación móvil">
-      <a href="#que-es" data-nav-link>Qué es ZETA</a>
+      <a href="#que-es" data-nav-link>¿Qué es ZETA?</a>
       <a href="#porque" data-nav-link>¿Por qué ZETA?</a>
-      <a href="#control" data-nav-link>Ten el control</a>
+      <a href="#control" data-nav-link>Toma el control</a>
       <a href="#simulador" data-nav-link>Simulador</a>
       <button type="button" class="btn btn-outline-light btn-sm" id="open-login-mobile">Iniciar sesión</button>
       <a href="#descarga" class="btn btn-primary btn-sm">Descárgala gratis</a>
@@ -60,9 +97,9 @@
   <section class="hero" id="hero">
     <div class="hero-text">
       <div class="hero-glow" aria-hidden="true"></div>
-      <p class="pill fade-up">App de banca para Gen Z</p>
+      <p class="pill fade-up">By BBVA. Para ti.</p>
       <h1 class="fade-up" style="transition-delay:.15s">Tu dinero, por fin <span class="accent">en tus manos</span></h1>
-      <p class="hero-subline fade-up" style="transition-delay:.3s">Aprende, ahorra e invierte. Sin tecnicismos, sin letra pequeña, sin que tengas que ser experto.</p>
+      <p class="hero-subline fade-up" style="transition-delay:.3s">Te acompañamos a gestionar tus finanzas desde tu primer sueldo hasta tu primera inversión. A tu ritmo.</p>
       <div class="hero-ctas fade-up" style="transition-delay:.45s">
         <a href="#descarga" class="btn btn-primary">Descárgala gratis</a>
         <a href="#que-es" class="btn btn-outline-light">Cómo funciona</a>
@@ -74,7 +111,7 @@
       <div class="hero-media-overlay" aria-hidden="true"></div>
       <div class="hero-stat-pill" aria-hidden="true">
         <strong>+5,2%</strong>
-        <span>rentabilidad media</span>
+        <span>rentabilidad media este año</span>
       </div>
     </div>
   </section>
@@ -86,16 +123,16 @@
         <img src="assets/foto-que-es.png" alt="Un grupo de jóvenes en un entorno urbano usando la app de ZETA en su móvil" loading="lazy">
       </div>
       <div class="split-text">
-        <p class="eyebrow eyebrow-purple fade-up">¿Te suena esto?</p>
-        <h2 class="fade-up" style="transition-delay:.1s">Qué es ZETA</h2>
-        <h3 class="fade-up" style="transition-delay:.2s">La banca que evoluciona contigo.</h3>
-        <p class="fade-up" style="transition-delay:.3s">ZETA nace para acompañarte en una etapa llena de primeras veces: tu primer sueldo, tu primer viaje, tu primer ahorro o incluso tu primera inversión.</p>
-        <p class="fade-up" style="transition-delay:.35s">No queremos ser solo una cuenta bancaria.</p>
-        <p class="fade-up" style="transition-delay:.4s">Queremos darte las herramientas para que entiendas tu dinero, tomes mejores decisiones y tengas tú el control de todo.</p>
+        <p class="eyebrow eyebrow-purple fade-up">Antes de nada</p>
+        <h2 class="fade-up" style="transition-delay:.1s">Qué es ZETA<span class="sr-only"> — app de banca digital para jóvenes en España</span></h2>
+        <h3 class="fade-up" style="transition-delay:.2s">La app de banca para jóvenes que empiezan a vivir de forma independiente.</h3>
+        <p class="fade-up" style="transition-delay:.3s">Hay una primera vez para todo. Tu primera nómina, tu primer alquiler, tu primera inversión. Zeta es la app que está ahí para todas ellas desde España.</p>
+        <p class="fade-up" style="transition-delay:.35s">No somos el banco de tus padres, somos el tuyo. Además de cuidar tu dinero, te impulsamos para que lo multipliques.</p>
+        <p class="fade-up" style="transition-delay:.4s">Te damos lo que necesitas para entender tus finanzas personales, decidir con cabeza y llegar donde quieres llegar.</p>
         <div class="chip-row fade-up" style="transition-delay:.5s">
-          <span class="chip">📚 Aprende</span>
-          <span class="chip">💸 Ahorra</span>
-          <span class="chip">📈 Invierte</span>
+          <span class="chip" aria-label="Aprende sobre finanzas">📚 Aprende</span>
+          <span class="chip" aria-label="Ahorra dinero">💸 Ahorra</span>
+          <span class="chip" aria-label="Empieza a invertir">📈 Invierte</span>
         </div>
       </div>
     </div>
@@ -105,11 +142,11 @@
   <section class="split-section split-dark" id="porque">
     <div class="split-inner">
       <div class="split-text">
-        <h2 class="fade-up">Por qué escoger ZETA</h2>
-        <h3 class="fade-up" style="transition-delay:.1s">Porque nadie nace sabiendo</h3>
-        <p class="fade-up" style="transition-delay:.2s">En ZETA creemos que la mejor inversión es entender cómo funciona tu dinero.</p>
-        <p class="fade-up" style="transition-delay:.3s">Por eso dentro de la plataforma tendrás acceso a una serie de cursos que te permitirán aprender desde cero.</p>
-        <p class="fade-up" style="transition-delay:.4s">Sin tecnicismos. Sin presión. Solo conocimiento útil para tomar mejores decisiones cada día.</p>
+        <h2 class="fade-up">Por qué ZETA<span class="sr-only"> — por qué elegir ZETA para gestionar tu dinero</span></h2>
+        <h3 class="fade-up" style="transition-delay:.1s">La mejor inversión es entender tus finanzas.</h3>
+        <p class="fade-up" style="transition-delay:.2s">El problema no eres tú. Es que nadie te lo había explicado antes en tu idioma.</p>
+        <p class="fade-up" style="transition-delay:.3s">Zeta te da acceso a educación financiera real para que tomes decisiones conscientes: cursos cortos, casos del día a día y nada de tecnicismos.</p>
+        <p class="fade-up" style="transition-delay:.4s">No hace falta que entiendas todo de golpe. Ve a tu ritmo, nosotros seguiremos aquí.</p>
       </div>
       <div class="split-media fade-up">
         <img src="assets/foto-simulador.png" alt="Interfaz gamificada de la app ZETA mostrando un recorrido de aprendizaje con niveles" loading="lazy">
@@ -117,7 +154,7 @@
     </div>
   </section>
 
-  <!-- ======================= TEN EL CONTROL ======================= -->
+  <!-- ======================= TOMA EL CONTROL ======================= -->
   <section class="split-section split-pale" id="control">
     <div class="split-inner">
       <div class="split-media fade-up">
@@ -125,11 +162,11 @@
       </div>
       <div class="split-text">
         <p class="eyebrow eyebrow-purple fade-up">Todo bajo control</p>
-        <h2 class="fade-up" style="transition-delay:.1s">Ten tú el control de todo</h2>
-        <h3 class="h3-purple fade-up" style="transition-delay:.2s">Tu dinero. Tus decisiones. Tu ritmo.</h3>
-        <p class="fade-up" style="transition-delay:.3s">Con ZETA sabes en todo momento qué pasa con tu dinero.</p>
-        <p class="fade-up" style="transition-delay:.35s">Consulta tus movimientos, crea objetivos, y recibe consejos personalizados desde una única aplicación.</p>
-        <p class="fade-up" style="transition-delay:.4s">Sin procesos complicados. Sin letra pequeña. Solo herramientas que te ayudan a decidir con confianza.</p>
+        <h2 class="fade-up" style="transition-delay:.1s">Toma el control de tu dinero</h2>
+        <h3 class="h3-purple fade-up" style="transition-delay:.2s">Todo lo que necesitas para gestionar tu dinero en una sola app</h3>
+        <p class="fade-up" style="transition-delay:.3s">Abre la app y en dos segundos ya sabes cuánto tienes, cuánto te gastas y cuánto te queda.</p>
+        <p class="fade-up" style="transition-delay:.35s">Una sola app para consultar tus movimientos, crear metas de ahorro y recibir tus <span class="tooltip-trigger" data-tooltip="Consejos personalizados basados en tus hábitos financieros." tabindex="0" aria-describedby="tooltip-zetips">ZETips</span><span role="tooltip" id="tooltip-zetips" class="tooltip">Consejos personalizados basados en tus hábitos financieros.</span>.</p>
+        <p class="fade-up" style="transition-delay:.4s">Cada función de ZETA existe por una razón: que tú sientas el control siempre.</p>
       </div>
     </div>
   </section>
@@ -137,16 +174,17 @@
   <!-- ======================= SIMULADOR ======================= -->
   <section class="sim-section" id="simulador">
     <div class="sim-header">
-      <p class="eyebrow fade-up">Simulador ZETA</p>
-      <h2 class="fade-up" style="transition-delay:.1s">Descubre hasta dónde puedes llegar</h2>
-      <p class="sim-subtext fade-up" style="transition-delay:.2s">Experimenta, compara y aprende antes de decidir. Porque cuando entiendes las consecuencias de tus decisiones, elegir se vuelve mucho más fácil.</p>
+      <p class="eyebrow fade-up">¿Hasta dónde podrías llegar?</p>
+      <h2 class="fade-up" style="transition-delay:.1s">Simulador ZETA</h2>
+      <h3 class="sim-subheading fade-up" style="transition-delay:.15s">Descubre cómo alcanzar tu objetivo</h3>
+      <p class="sim-subtext fade-up" style="transition-delay:.2s">Mueve los sliders y mira cómo cambia tu futuro financiero con cifras reales. Sin registro previo.</p>
     </div>
 
     <div class="sim-body fade-up" style="transition-delay:.3s">
 
       <!-- Paso 1: objetivo -->
       <div class="sim-step">
-        <p class="sim-step-label">1. Selecciona tu objetivo</p>
+        <p class="sim-step-label">1. ¿Cuál es tu objetivo?</p>
         <div class="chip-select" id="sim-goal-chips" role="group" aria-label="Selecciona tu objetivo de ahorro">
           <button type="button" class="chip-option" data-goal="viaje" data-default="3000" aria-pressed="true">✈️ Viaje</button>
           <button type="button" class="chip-option" data-goal="coche" data-default="15000" aria-pressed="false">🚗 Coche</button>
@@ -167,6 +205,7 @@
             <span class="sim-input-symbol">€</span>
           </div>
         </div>
+        <span class="sim-field-error" id="sim-cantidad-error" aria-live="polite"></span>
       </div>
 
       <!-- Paso 3: ahorro mensual -->
@@ -179,13 +218,13 @@
             <span class="sim-input-symbol">€</span>
           </div>
         </div>
+        <span class="sim-field-error" id="sim-ahorro-error" aria-live="polite"></span>
       </div>
 
       <!-- Resultado -->
       <div class="sim-result" id="sim-result">
         <p class="sim-result-text" id="sim-result-text" aria-live="polite">Completa los datos anteriores para ver tu resultado.</p>
         <div class="zetip" id="sim-zetip" aria-live="polite" hidden>
-          <span class="zetip-label">ZETip</span>
           <p id="sim-zetip-text"></p>
         </div>
       </div>
@@ -196,24 +235,27 @@
   <section class="testimonials-section">
     <div class="testimonials-header">
       <p class="eyebrow eyebrow-purple fade-up">Ya lo están usando</p>
-      <h2 class="fade-up" style="transition-delay:.1s">Gente como tú, que ya lo pilló</h2>
+      <h2 class="fade-up" style="transition-delay:.1s">Los que dieron el paso a ZETA tienen algo que decirte</h2>
     </div>
 
     <div class="testimonials-grid">
-      <blockquote class="testimonial-card fade-up">
+      <blockquote class="testimonial-card fade-up" itemscope itemtype="https://schema.org/Review">
         <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-        <p>Llevaba dos años queriendo invertir y no me atrevía. Aquí entendí por qué — y también cómo.</p>
-        <footer>Lucía, 23 años · Madrid · Estudiante de máster</footer>
+        <p itemprop="reviewBody">Llevaba dos años queriendo invertir y no me atrevía. Aquí entendí por qué — y también cómo.</p>
+        <footer itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Lucía, 23 años · Madrid · Estudiante de máster</span></footer>
+        <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/MobileApplication" hidden><span itemprop="name">ZETA</span></span>
       </blockquote>
-      <blockquote class="testimonial-card fade-up" style="transition-delay:.1s">
+      <blockquote class="testimonial-card fade-up" style="transition-delay:.1s" itemscope itemtype="https://schema.org/Review">
         <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-        <p>Mi banco me ofrecía planes que no entendía. Zeta me los explicó en un vídeo de 4 minutos.</p>
-        <footer>Marcos, 26 años · Barcelona · Desarrollador junior</footer>
+        <p itemprop="reviewBody">Mi banco me ofrecía planes que no entendía. Zeta me los explicó en un vídeo de 4 minutos.</p>
+        <footer itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Marcos, 26 años · Barcelona · Desarrollador junior</span></footer>
+        <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/MobileApplication" hidden><span itemprop="name">ZETA</span></span>
       </blockquote>
-      <blockquote class="testimonial-card fade-up" style="transition-delay:.2s">
+      <blockquote class="testimonial-card fade-up" style="transition-delay:.2s" itemscope itemtype="https://schema.org/Review">
         <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-        <p>Empecé ahorrando 50€ al mes. Ahora tengo una meta real y sé a dónde va mi dinero.</p>
-        <footer>Alba, 24 años · Valencia · Freelance diseño</footer>
+        <p itemprop="reviewBody">Empecé ahorrando 50€ al mes. Ahora tengo una meta real y sé a dónde va mi dinero.</p>
+        <footer itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Alba, 24 años · Valencia · Freelance diseño</span></footer>
+        <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/MobileApplication" hidden><span itemprop="name">ZETA</span></span>
       </blockquote>
     </div>
 
@@ -225,7 +267,7 @@
   <!-- ======================= CTA FINAL ======================= -->
   <section class="cta-final" id="descarga">
     <h3 class="fade-up">¿A qué esperas?</h3>
-    <p class="fade-up" style="transition-delay:.1s">Descarga la app gratis y toma el control.</p>
+    <p class="fade-up" style="transition-delay:.1s">Descarga la app gratis y toma el control de tu dinero</p>
 
     <div class="cta-actions fade-up" style="transition-delay:.2s">
       <a href="#" class="store-btn" aria-label="Descargar ZETA en App Store">
@@ -261,7 +303,11 @@
       <a href="#">Cookies</a>
     </nav>
   </div>
+  <p class="footer-seo-line">ZETA by BBVA — App de banca digital para jóvenes en España · © 2026</p>
 </footer>
+
+<!-- ======================= OVERLAY TOOLTIP (mobile) ======================= -->
+<div class="tooltip-overlay" id="tooltip-overlay" hidden></div>
 
 <!-- ======================= QR FLOTANTE ======================= -->
 <div class="qr-float" id="qr-float">

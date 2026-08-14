@@ -71,6 +71,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .skip-link:focus { left: 0; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--purple);
   outline-offset: 2px;
@@ -410,6 +422,81 @@ ul { list-style: none; margin: 0; padding: 0; }
   border-radius: var(--radius);
 }
 
+/* ============================ TOOLTIP (ZETips) ============================ */
+.tooltip-trigger {
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted var(--purple);
+  text-underline-offset: 3px;
+  color: inherit;
+  font-weight: 500;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 13px;
+  font-family: var(--font-body);
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 50;
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--purple);
+}
+
+.tooltip-trigger:hover + .tooltip,
+.tooltip-trigger:focus-visible + .tooltip,
+.tooltip.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.tooltip-overlay.is-visible { opacity: 1; pointer-events: auto; }
+.tooltip-overlay[hidden] { display: none; }
+
+@media (max-width: 767px) {
+  .tooltip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1600;
+    max-width: 280px;
+    text-align: center;
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+  .tooltip::after { display: none; }
+}
+
 /* ============================ SIMULATOR ============================ */
 .sim-section {
   background: var(--black);
@@ -424,6 +511,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .sim-header h2 { color: var(--white); }
 .sim-header .eyebrow { display: block; }
+.sim-subheading { color: var(--lilac); }
 .sim-subtext { color: rgba(255, 255, 255, 0.5); }
 
 .sim-body {
@@ -535,6 +623,14 @@ ul { list-style: none; margin: 0; padding: 0; }
 .sim-input::-webkit-outer-spin-button,
 .sim-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
+.sim-field-error {
+  display: block;
+  min-height: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #ff8a8a;
+}
+
 .sim-result {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 28px;
@@ -553,14 +649,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   border: 1px solid rgba(123, 46, 255, 0.3);
   border-radius: var(--radius);
   padding: 16px 20px;
-}
-.zetip-label {
-  display: block;
-  font-family: var(--font-subheading);
-  font-weight: 500;
-  color: var(--lilac);
-  font-size: 13px;
-  margin-bottom: 6px;
 }
 .zetip p { color: var(--white); margin: 0; font-size: 14px; }
 
@@ -722,6 +810,17 @@ ul { list-style: none; margin: 0; padding: 0; }
   transition: color var(--transition);
 }
 .footer-links a:hover { color: var(--lilac); }
+
+.footer-seo-line {
+  max-width: var(--container-width);
+  margin: 24px auto 0;
+  padding: 16px 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+}
 
 /* ============================ QR FLOTANTE ============================ */
 .qr-float {

@@ -137,6 +137,9 @@
   var zetipText = document.getElementById('sim-zetip-text');
   var selectedGoal = 'viaje';
 
+  var cantidadError = document.getElementById('sim-cantidad-error');
+  var ahorroError = document.getElementById('sim-ahorro-error');
+
   var PLACEHOLDER_RESULT = 'Completa los datos anteriores para ver tu resultado.';
 
   function clamp(value, min, max) {
@@ -161,27 +164,39 @@
     });
   });
 
-  function syncSliderInput(slider, input) {
+  function syncSliderInput(slider, input, errorEl) {
     slider.addEventListener('input', function () {
       input.value = slider.value;
+      if (errorEl) errorEl.textContent = '';
       calcularSimulador();
     });
     input.addEventListener('input', function () {
       if (input.value === '') return;
-      var value = clamp(parseInt(input.value, 10) || 0, parseInt(slider.min, 10), parseInt(slider.max, 10));
+      var min = parseInt(slider.min, 10);
+      var max = parseInt(slider.max, 10);
+      var raw = parseInt(input.value, 10) || 0;
+
+      if (errorEl) {
+        errorEl.textContent = raw > 0 && raw < min ? 'El importe mínimo es ' + min + '€.' : '';
+      }
+
+      var value = clamp(raw, min, max);
       slider.value = value;
       calcularSimulador();
     });
     input.addEventListener('blur', function () {
-      var value = clamp(parseInt(input.value, 10) || parseInt(slider.min, 10), parseInt(slider.min, 10), parseInt(slider.max, 10));
+      var min = parseInt(slider.min, 10);
+      var max = parseInt(slider.max, 10);
+      var value = clamp(parseInt(input.value, 10) || min, min, max);
       input.value = value;
       slider.value = value;
+      if (errorEl) errorEl.textContent = '';
       calcularSimulador();
     });
   }
 
-  if (cantidadSlider && cantidadInput) syncSliderInput(cantidadSlider, cantidadInput);
-  if (ahorroSlider && ahorroInput) syncSliderInput(ahorroSlider, ahorroInput);
+  if (cantidadSlider && cantidadInput) syncSliderInput(cantidadSlider, cantidadInput, cantidadError);
+  if (ahorroSlider && ahorroInput) syncSliderInput(ahorroSlider, ahorroInput, ahorroError);
 
   function calcularSimulador() {
     if (!cantidadInput || !ahorroInput || !resultText) return;
@@ -196,18 +211,19 @@
     }
 
     var meses = Math.ceil(objetivo / ahorroMensual);
-    resultText.textContent = '¡Vas a poder alcanzar tu objetivo en ' + meses + ' meses!';
+    var resultado = '¡Con ZETA puedes alcanzar tu objetivo en ' + meses + ' meses!';
 
-    if (selectedGoal === 'otro') {
-      zetip.hidden = true;
-      return;
+    if (meses > 24) {
+      var anios = Math.round((meses / 12) * 10) / 10;
+      resultado += ' (aproximadamente ' + anios + ' años)';
     }
+    resultText.textContent = resultado;
 
     var mesesConBonus = Math.ceil(objetivo / (ahorroMensual + 20));
     var diferencia = meses - mesesConBonus;
 
     if (diferencia > 0) {
-      zetipText.textContent = 'Si aumentas solo 20€ al mes, podrías conseguirlo casi ' + diferencia + ' meses antes.';
+      zetipText.textContent = '⚡ ZETip: con 20€ más al mes llegas ' + diferencia + ' meses antes.';
       zetip.hidden = false;
     } else {
       zetip.hidden = true;
@@ -215,6 +231,57 @@
   }
 
   calcularSimulador();
+
+  /* ============================================================
+     4b. TOOLTIP ZETips (hover en desktop, tap en mobile)
+     ============================================================ */
+  var tooltipTrigger = document.querySelector('.tooltip-trigger');
+  var tooltipEl = document.getElementById('tooltip-zetips');
+  var tooltipOverlay = document.getElementById('tooltip-overlay');
+
+  function isMobileViewport() {
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function showTooltip() {
+    if (!tooltipEl) return;
+    tooltipEl.classList.add('is-visible');
+    if (isMobileViewport() && tooltipOverlay) {
+      tooltipOverlay.hidden = false;
+      requestAnimationFrame(function () { tooltipOverlay.classList.add('is-visible'); });
+    }
+  }
+
+  function hideTooltip() {
+    if (!tooltipEl) return;
+    tooltipEl.classList.remove('is-visible');
+    if (tooltipOverlay) {
+      tooltipOverlay.classList.remove('is-visible');
+      tooltipOverlay.hidden = true;
+    }
+  }
+
+  if (tooltipTrigger && tooltipEl) {
+    tooltipTrigger.addEventListener('click', function (event) {
+      if (!isMobileViewport()) return;
+      event.stopPropagation();
+      if (tooltipEl.classList.contains('is-visible')) {
+        hideTooltip();
+      } else {
+        showTooltip();
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (tooltipEl.classList.contains('is-visible') && !tooltipTrigger.contains(event.target)) {
+        hideTooltip();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') hideTooltip();
+    });
+  }
 
   /* ============================================================
      5. QR FLOTANTE (popover on hover/click)
