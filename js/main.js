@@ -284,37 +284,6 @@
   }
 
   /* ============================================================
-     5. QR FLOTANTE (popover on hover/click)
-     ============================================================ */
-  var qrFloat = document.getElementById('qr-float');
-  var qrBtn = document.getElementById('qr-float-btn');
-  var qrPopover = document.getElementById('qr-popover');
-
-  function showQrPopover() {
-    qrPopover.hidden = false;
-    qrBtn.setAttribute('aria-expanded', 'true');
-  }
-  function hideQrPopover() {
-    qrPopover.hidden = true;
-    qrBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  if (qrFloat && qrBtn && qrPopover) {
-    qrFloat.addEventListener('mouseenter', showQrPopover);
-    qrFloat.addEventListener('mouseleave', hideQrPopover);
-    qrBtn.addEventListener('click', function () {
-      if (qrPopover.hidden) {
-        showQrPopover();
-      } else {
-        hideQrPopover();
-      }
-    });
-    document.addEventListener('click', function (event) {
-      if (!qrFloat.contains(event.target)) hideQrPopover();
-    });
-  }
-
-  /* ============================================================
      6. MODALES (login / registro)
      ============================================================ */
   var loginModal = document.getElementById('login-modal');
@@ -383,7 +352,6 @@
       return;
     }
     if (drawer && drawer.classList.contains('is-open')) closeDrawer();
-    hideQrPopover();
   });
 
   document.addEventListener('keydown', function (event) {
