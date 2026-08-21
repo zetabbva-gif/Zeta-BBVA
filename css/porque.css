@@ -1,0 +1,39 @@
+/* =======================================================================
+   ZETA — porque.css
+   Sección "Por qué ZETA" (fondo negro, texto izquierda / imagen derecha).
+   ======================================================================= */
+
+.split-dark { background: var(--black); color: var(--white); }
+.split-dark h2, .split-dark h3 { color: var(--white); }
+.split-dark h3 { color: var(--lilac); }
+.split-dark p:not(.eyebrow) { color: rgba(255, 255, 255, 0.6); }
+
+.split-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 72px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.split-media img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 1024px) {
+  .split-inner { padding: 72px 32px; gap: 40px; }
+}
+
+@media (max-width: 767px) {
+  .split-inner {
+    grid-template-columns: 1fr;
+    padding: 56px 24px;
+    gap: 32px;
+  }
+  .split-media img { aspect-ratio: 4 / 3; }
+}

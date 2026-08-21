@@ -1,0 +1,72 @@
+/* =======================================================================
+   ZETA — testimoniales.css
+   Sección de testimoniales (tarjetas con schema.org/Review) y franja
+   de beneficios inmediatamente debajo.
+   ======================================================================= */
+
+.testimonials-section { background: var(--white); padding: 96px 0 0; }
+
+.testimonials-header {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px 48px;
+  text-align: center;
+}
+.testimonials-header h2 { color: var(--black); }
+
+.testimonials-grid {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 40px 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--card-on-white-bg);
+  border: 1px solid var(--card-on-white-border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin: 0;
+}
+.quote-mark {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: var(--lilac);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.testimonial-card p {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--black);
+  line-height: 1.4;
+}
+.testimonial-card footer {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.benefits-strip {
+  background: rgba(123, 46, 255, 0.07);
+  padding: 20px 40px;
+  text-align: center;
+}
+.benefits-strip p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 1024px) {
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 767px) {
+  .testimonials-grid { grid-template-columns: 1fr; padding: 0 24px 56px; }
+  .testimonials-header { padding: 0 24px 40px; }
+}

@@ -1,0 +1,221 @@
+/* =======================================================================
+   ZETA — modales.css
+   Modales de login/registro y tooltip de ZETips (agrupados porque
+   comparten patrón de overlay + cierre con ESC/click fuera).
+   ======================================================================= */
+
+/* ---------- Tooltip ZETips ---------- */
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 240px;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 13px;
+  font-family: var(--font-body);
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 50;
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--purple);
+}
+
+.tooltip-trigger:hover + .tooltip,
+.tooltip-trigger:focus-visible + .tooltip,
+.tooltip.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.tooltip-overlay.is-visible { opacity: 1; pointer-events: auto; }
+.tooltip-overlay[hidden] { display: none; }
+
+@media (max-width: 767px) {
+  .tooltip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1600;
+    max-width: 280px;
+    text-align: center;
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+  .tooltip::after { display: none; }
+}
+
+/* ---------- Modales login / registro ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+}
+.modal-overlay[hidden] { display: none; }
+
+.modal {
+  background: #111111;
+  border: 1px solid var(--purple);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: var(--white);
+  animation: modal-in 0.25s ease both;
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px;
+}
+.modal-close:hover { color: var(--white); }
+
+.modal-logo { margin: 0 auto 20px; opacity: 0.8; }
+
+.modal h3 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.form-field { margin-bottom: 18px; }
+.form-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 6px;
+}
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="password"] {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 14px;
+}
+.form-field input:focus { border-color: var(--purple); }
+.form-field input.invalid { border-color: #ff6b6b; }
+
+.field-error {
+  display: block;
+  min-height: 16px;
+  font-size: 11px;
+  color: #ff6b6b;
+  margin-top: 4px;
+}
+
+.password-wrapper { position: relative; }
+.password-wrapper input { padding-right: 56px !important; }
+.password-toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--lilac);
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.link-inline {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--lilac);
+  text-decoration: none;
+}
+.link-inline:hover { text-decoration: underline; }
+
+.forgot-link { display: block; text-align: right; margin: -8px 0 20px; }
+
+.modal-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 16px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+.modal-divider::before,
+.modal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
+}
+.checkbox-field input { margin-top: 3px; }
+
+.modal-note {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin: 16px 0 0;
+}
+
+.modal-switch { display: block; margin: 0 auto; text-align: center; }
+
+@media (max-width: 767px) {
+  .modal { padding: 28px; }
+}

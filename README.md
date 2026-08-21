@@ -2,7 +2,8 @@
 
 Landing page de una sola página (single-page, scroll vertical) cuyo único
 objetivo es dirigir al usuario a la descarga de la app ZETA. No requiere
-build ni dependencias: es HTML, CSS y JavaScript vanilla.
+build ni dependencias: es HTML, CSS y JavaScript vanilla, con el CSS y el
+JS modularizados por sección.
 
 ## Estructura del proyecto
 
@@ -10,9 +11,25 @@ build ni dependencias: es HTML, CSS y JavaScript vanilla.
 zeta-landing/
   index.html
   css/
-    styles.css
+    base.css          ← reset, variables CSS, tipografías, utilidades
+    nav.css
+    hero.css
+    trust-bar.css      ← ver nota en "Arquitectura del proyecto"
+    que-es.css
+    porque.css
+    control.css
+    simulador.css
+    testimoniales.css
+    cta-final.css
+    footer.css
+    modales.css        ← modales login/registro + tooltip ZETips
   js/
-    main.js
+    animations.js       ← fadeUp global + window.ZETA compartido
+    nav.js
+    hero.js
+    simulador.js
+    testimoniales.js
+    modales.js
   download/
     index.html        ← smart redirect a App Store / Google Play
   assets/
@@ -24,33 +41,102 @@ zeta-landing/
   README.md
 ```
 
-## Sustituir los placeholders de imagen
+## Arquitectura del proyecto
 
-Todas las imágenes de `/assets/` son placeholders generados automáticamente
-(fondo de color con el nombre de la imagen escrito encima) para que puedas
-ver el layout completo antes de tener las fotos reales. Sustitúyelas
-manualmente por archivos con el **mismo nombre** y usa **el mismo formato
-(PNG)** para no tener que tocar el HTML:
+El código está modularizado por secciones: cada sección de la web tiene su
+propio archivo CSS y (cuando tiene lógica propia) su propio archivo JS.
+Para modificar una sección, basta con editar su archivo — no hace falta
+tocar el resto.
+
+### CSS
+
+Los `<link>` de `index.html` cargan los archivos en este orden (importa:
+`base.css` va primero porque define las variables `:root` y las utilidades
+que el resto de archivos reutiliza):
+
+- Variables globales, reset y utilidades → `css/base.css`
+- Navegación → `css/nav.css`
+- Hero → `css/hero.css`
+- Barra de confianza → `css/trust-bar.css` *(ver nota abajo)*
+- Qué es ZETA → `css/que-es.css`
+- Por qué ZETA → `css/porque.css`
+- Toma el control → `css/control.css`
+- Simulador → `css/simulador.css`
+- Testimoniales → `css/testimoniales.css`
+- CTA final → `css/cta-final.css`
+- Footer → `css/footer.css`
+- Modales y tooltip de ZETips → `css/modales.css`
+
+Ningún archivo de sección redefine variables — todos usan las de `:root`
+declaradas en `base.css`. Las tres secciones con layout "imagen + texto"
+(Qué es ZETA, Por qué ZETA, Toma el control) repiten la regla `.split-inner`
+en su propio archivo en lugar de compartirla desde `base.css`: así cada
+sección queda autocontenida y se puede ajustar su layout sin tocar las
+otras dos.
+
+> **Nota sobre `trust-bar.css`:** la barra de confianza no está presente en
+> la versión actual de la landing (se retiró en una iteración anterior por
+> falta de legibilidad; su información — "Respaldada por BBVA · Regulada
+> por el Banco de España" — vive ahora en el badge del hero, `.hero-badge`
+> en `css/hero.css`). El archivo se mantiene vacío y documentado para
+> conservar la arquitectura de 12 módulos pedida, listo por si la sección
+> se reincorpora en el futuro.
+
+### JavaScript
+
+Los `<script defer>` se cargan al final del `<body>` en este orden:
+
+1. `js/animations.js` — declara `window.ZETA` (compartido entre módulos,
+   sin `import`/`export` para que funcione en GitHub Pages sin servidor) y
+   el `IntersectionObserver` que activa el `fadeUp` en todas las secciones.
+2. `js/nav.js` — smooth scroll con offset del nav y highlight del enlace
+   activo.
+3. `js/hero.js` — reservado; el hero no tiene lógica propia (su fadeUp lo
+   cubre `animations.js` y el Ken Burns es CSS puro en `hero.css`).
+4. `js/simulador.js` — chips de objetivo, sliders sincronizados, cálculo
+   en tiempo real y ZETip dinámico.
+5. `js/testimoniales.js` — reservado; no hay carrusel implementado (la
+   sección es una rejilla estática de 3 columnas).
+6. `js/modales.js` — tooltip de ZETips, apertura/cierre de los modales de
+   login y registro, focus trap, validación de formularios y toggle de
+   mostrar/ocultar contraseña.
+
+Todos los módulos usan el patrón IIFE (`(function () { ... })()`), no ES
+modules. El botón "Iniciar sesión" del nav se define en el HTML dentro de
+`nav.css`, pero su comportamiento de apertura de modal vive en
+`modales.js`, que es el dueño del estado (`openModal`/`closeModal`) —
+mantenerlo junto evita duplicar esa lógica entre dos archivos.
+
+## Menú móvil eliminado
+
+El menú hamburguesa y el drawer lateral se han eliminado por completo
+(HTML, CSS y JS). En pantallas menores de 768px la nav solo muestra el
+logo y el botón "Descárgala gratis"; los enlaces de navegación y el botón
+"Iniciar sesión" se ocultan (`display: none` en `css/nav.css`) sin ningún
+menú alternativo.
+
+## Sustituir las imágenes
 
 | Archivo                     | Dónde se usa                              | Recomendación de tamaño / encuadre |
 |------------------------------|--------------------------------------------|--------------------------------------|
 | `assets/logo-zeta.png`       | Nav, footer, modales de login/registro, página de descarga | Logo con fondo transparente, formato horizontal (≈300×100 px) |
-| `assets/pablo.png`           | Foto de fondo a ancho completo del Hero    | Horizontal o vertical, encuadre desde arriba (`object-position: center top`), mínimo 1600×1000 px — cuanto más ancha, mejor cubre pantallas panorámicas |
+| `assets/pablo.png`           | Foto de fondo a ancho completo del Hero    | Fondo blanco, figura centrada, sin texto superpuesto (se integra con `mix-blend-mode: multiply` sobre el fondo negro del hero) |
 | `assets/foto-que-es.png`     | Sección "Qué es ZETA"                      | Foto horizontal, grupo de jóvenes en entorno urbano, mínimo 1000×1200 px |
 | `assets/foto-control.png`    | Sección "Toma el control"                  | Foto de un smartphone con la app, mínimo 1000×1200 px |
 | `assets/foto-simulador.png`  | Sección "Por qué ZETA"                     | Foto/mockup de interfaz gamificada, mínimo 1000×1200 px |
 
-Simplemente reemplaza el archivo en `/assets/` manteniendo el nombre exacto
-(incluye mayúsculas/minúsculas) y la página lo recogerá automáticamente al
-recargar — no hace falta editar `index.html` ni `styles.css`.
+Reemplaza el archivo en `/assets/` manteniendo el nombre exacto (incluye
+mayúsculas/minúsculas) y la página lo recogerá automáticamente al
+recargar — no hace falta editar `index.html` ni ningún CSS.
 
 Si prefieres usar otro formato (JPG, WebP), actualiza también la extensión
 en el atributo `src` correspondiente dentro de `index.html` y de
-`download/index.html`.
+`download/index.html`, y en la regla `background-image` de `css/hero.css`
+(la que usa la versión mobile del hero).
 
 ## Cómo cambiar el QR placeholder por el real
 
-Ahora solo queda un QR en toda la landing: el de la sección CTA final
+Solo hay un QR en toda la landing: el de la sección CTA final
 ("¿A qué esperas?"). Es un `<div class="cta-qr-box">QR</div>` dentro de un
 enlace `<a href="download/index.html" class="cta-qr">` — el placeholder de
 texto y el enlace apuntan ambos a la misma idea: la ruta `/download`.
@@ -68,7 +154,7 @@ Para poner el QR real:
 
    (añade el archivo de imagen del QR dentro de `/assets/`; la clase
    `cta-qr-box` ya define el tamaño 160×160px, el padding y el
-   `border-radius` en `css/styles.css`, así que la imagen los hereda
+   `border-radius` en `css/cta-final.css`, así que la imagen los hereda
    automáticamente).
 3. El `<a href="download/index.html">` que envuelve el QR puedes dejarlo
    así (útil para probar el flujo haciendo clic desde el propio navegador)
@@ -77,8 +163,9 @@ Para poner el QR real:
 
 ## Página de descarga inteligente (`/download`)
 
-`download/index.html` es la página a la que apunta el QR. Al cargarse,
-detecta el dispositivo por `navigator.userAgent` y redirige automáticamente:
+`download/index.html` es la página a la que apunta el QR. No forma parte
+de esta refactorización (se mantiene igual). Al cargarse, detecta el
+dispositivo por `navigator.userAgent` y redirige automáticamente:
 
 - **iOS** (iPhone/iPad/iPod) → App Store
 - **Android** → Google Play
@@ -140,7 +227,9 @@ producción.
    contenido de esta carpeta (`index.html`, `css/`, `js/`, `download/`,
    `assets/`) a la raíz del repositorio (o a una subcarpeta, ver paso 3).
    Es importante subir también la carpeta `download/` completa para que
-   el QR funcione.
+   el QR funcione, y **las carpetas `css/` y `js/` enteras** (los 12
+   archivos CSS y los 6 archivos JS) — si falta alguno, esa sección
+   concreta perderá sus estilos o su interactividad.
 
    ```bash
    cd zeta-landing
@@ -174,11 +263,12 @@ Pages lo sirve tal cual.
   Grotesk, Rubik) — requiere conexión a internet para verse con el
   tipo de letra definitivo; si necesitas que funcione 100% offline,
   descarga los `.woff2` y sirve las fuentes desde `/assets/fonts/`.
-- El simulador, los modales de login/registro y el menú móvil están
-  implementados en JavaScript vanilla (sin dependencias) en `js/main.js`.
+- El simulador y los modales de login/registro están implementados en
+  JavaScript vanilla (sin dependencias) — ver "Arquitectura del proyecto"
+  para dónde vive cada pieza.
 - Respeta `prefers-reduced-motion`: si el usuario tiene desactivadas las
-  animaciones a nivel de sistema, las transiciones y el fade-up se
-  deshabilitan automáticamente.
+  animaciones a nivel de sistema, las transiciones, el fadeUp y el Ken
+  Burns del hero se deshabilitan automáticamente.
 - SEO/GEO: `title`, `meta description`, `keywords`, `canonical` y Open
   Graph en el `<head>`, más dos bloques JSON-LD (`MobileApplication` para
   la app y `WebApplication` para el simulador) y microdata

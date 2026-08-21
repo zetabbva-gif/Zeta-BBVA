@@ -1,0 +1,54 @@
+/* =======================================================================
+   ZETA — nav.css
+   Barra de navegación fija. Sin menú hamburguesa ni drawer móvil: en
+   mobile la nav solo muestra el logo y el CTA "Descárgala gratis".
+   ======================================================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  height: var(--nav-height);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo img { height: 40px; width: auto; }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+.nav-links a {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color var(--transition);
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--lilac);
+}
+
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+
+@media (max-width: 767px) {
+  /* Sin drawer alternativo: los enlaces y el login se ocultan,
+     solo quedan visibles el logo y el CTA de descarga. */
+  .nav-links { display: none; }
+  .nav-login { display: none; }
+}

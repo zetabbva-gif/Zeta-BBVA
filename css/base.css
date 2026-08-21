@@ -1,0 +1,158 @@
+/* =======================================================================
+   ZETA — base.css
+   Reset, variables CSS, tipografías y utilidades globales compartidas
+   por todas las secciones. No incluye estilos de ninguna sección
+   concreta — esos viven en su propio archivo (nav.css, hero.css, etc.).
+   ======================================================================= */
+
+:root {
+  --purple: #7B2EFF;
+  --lilac: #A855F7;
+  --pale: #F3E8FF;
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+
+  --card-on-white-bg: #F7F5FF;
+  --card-on-white-border: rgba(123, 46, 255, 0.12);
+  --card-on-dark-bg: rgba(255, 255, 255, 0.04);
+  --card-on-dark-border: rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
+  --font-subheading: 'Hanken Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Rubik', 'Segoe UI', sans-serif;
+
+  --nav-height: 72px;
+  --container-width: 1200px;
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+/* ============================ RESET ============================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+h3 { font-family: var(--font-subheading); font-weight: 500; font-size: 1.25rem; }
+
+p { margin: 0 0 14px; font-size: 15px; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+/* ============================ UTILIDADES GLOBALES ============================ */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--purple);
+  color: var(--white);
+  padding: 12px 20px;
+  z-index: 2000;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lilac);
+  margin: 0 0 12px;
+}
+.eyebrow-purple { color: var(--purple); }
+
+/* Botones: componente compartido por nav, hero y modales */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+.btn-sm { padding: 10px 20px; font-size: 13px; }
+.btn-block { width: 100%; }
+
+.btn-primary {
+  background: var(--purple);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--lilac); }
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.btn-outline-light:hover { border-color: var(--purple); color: var(--white); }
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.btn-outline-dark:hover { border-color: var(--purple); }
+
+/* Animación de entrada usada por todas las secciones */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

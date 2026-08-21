@@ -1,0 +1,66 @@
+/* =======================================================================
+   ZETA — cta-final.css
+   Sección "¿A qué esperas?" con el QR que enlaza a /download/.
+   ======================================================================= */
+
+.cta-final {
+  background: var(--purple);
+  color: var(--white);
+  text-align: center;
+  padding: 96px 40px;
+}
+.cta-final h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 40px;
+  color: var(--white);
+}
+.cta-final > p:first-of-type {
+  font-family: var(--font-subheading);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+}
+
+.cta-qr {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 0;
+  transition: transform var(--transition);
+}
+.cta-qr:hover,
+.cta-qr:focus-visible { transform: translateY(-2px); }
+
+.cta-qr-box {
+  width: 160px;
+  height: 160px;
+  padding: 12px;
+  background: var(--white);
+  color: var(--purple);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+.cta-qr-label {
+  margin: 8px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+}
+.cta-qr-subtext {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 767px) {
+  .cta-final { padding: 64px 24px; }
+  .cta-final h3 { font-size: 30px; }
+}

@@ -18,7 +18,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Hanken+Grotesk:wght@500&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/trust-bar.css">
+<link rel="stylesheet" href="css/que-es.css">
+<link rel="stylesheet" href="css/porque.css">
+<link rel="stylesheet" href="css/control.css">
+<link rel="stylesheet" href="css/simulador.css">
+<link rel="stylesheet" href="css/testimoniales.css">
+<link rel="stylesheet" href="css/cta-final.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modales.css">
 
 <script type="application/ld+json">
 {
@@ -69,26 +80,10 @@
     </nav>
 
     <div class="nav-actions">
-      <button type="button" class="btn btn-outline-dark btn-sm" id="open-login" aria-haspopup="dialog" aria-controls="login-modal">Iniciar sesión</button>
-      <a href="#descarga" class="btn btn-primary btn-sm">Descárgala gratis</a>
-      <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
-        <span></span><span></span><span></span>
-      </button>
+      <button type="button" class="btn btn-outline-dark btn-sm nav-login" id="open-login" aria-haspopup="dialog" aria-controls="login-modal">Iniciar sesión</button>
+      <a href="#descarga" class="btn btn-primary btn-sm nav-cta">Descárgala gratis</a>
     </div>
   </div>
-
-  <!-- Mobile drawer -->
-  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <nav aria-label="Navegación móvil">
-      <a href="#que-es" data-nav-link>¿Qué es ZETA?</a>
-      <a href="#porque" data-nav-link>¿Por qué ZETA?</a>
-      <a href="#control" data-nav-link>Toma el control</a>
-      <a href="#simulador" data-nav-link>Simulador</a>
-      <button type="button" class="btn btn-outline-light btn-sm" id="open-login-mobile">Iniciar sesión</button>
-      <a href="#descarga" class="btn btn-primary btn-sm">Descárgala gratis</a>
-    </nav>
-  </div>
-  <div class="drawer-overlay" id="drawer-overlay"></div>
 </header>
 
 <main id="main-content">
@@ -368,6 +363,11 @@
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="js/animations.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/hero.js" defer></script>
+<script src="js/simulador.js" defer></script>
+<script src="js/testimoniales.js" defer></script>
+<script src="js/modales.js" defer></script>
 </body>
 </html>

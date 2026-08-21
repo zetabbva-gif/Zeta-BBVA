@@ -1,0 +1,58 @@
+/* =======================================================================
+   ZETA — que-es.css
+   Sección "Qué es ZETA" (fondo blanco, imagen izquierda / texto derecha).
+   ======================================================================= */
+
+.split-light { background: var(--white); color: var(--black); }
+.split-light p:not(.eyebrow) { color: rgba(0, 0, 0, 0.55); }
+
+.split-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 72px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.split-media img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.split-statement {
+  font-family: var(--font-subheading);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--purple);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  background: transparent;
+  transition: background var(--transition);
+}
+.chip:hover { background: var(--pale); }
+
+@media (max-width: 1024px) {
+  .split-inner { padding: 72px 32px; gap: 40px; }
+}
+
+@media (max-width: 767px) {
+  .split-inner {
+    grid-template-columns: 1fr;
+    padding: 56px 24px;
+    gap: 32px;
+  }
+  .split-media img { aspect-ratio: 4 / 3; }
+}

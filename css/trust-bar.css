@@ -1,0 +1,17 @@
+/* =======================================================================
+   ZETA — trust-bar.css
+   NOTA: la barra de confianza no forma parte de la versión actual de
+   la landing — se eliminó en una iteración anterior porque no era
+   legible sobre el hero y su información ("Respaldada por BBVA ·
+   Regulada por el Banco de España") ya vive en el badge del hero
+   (ver .hero-badge en hero.css).
+   Este archivo se mantiene vacío (solo con la clase de referencia) para
+   conservar la estructura de 12 módulos solicitada y para que, si en el
+   futuro se reincorpora la sección, tenga ya su sitio natural en la
+   cascada de estilos. Si se reactiva, sus estilos de fondo/borde
+   deberían ir aquí, usando las variables definidas en base.css.
+   ======================================================================= */
+
+.trust-bar {
+  /* Sin declarar: sección no presente en el DOM actual. */
+}

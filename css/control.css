@@ -1,0 +1,51 @@
+/* =======================================================================
+   ZETA — control.css
+   Sección "Toma el control" (fondo lila pale, imagen izquierda / texto
+   derecha). El estilo visual del tooltip de ZETips vive en modales.css
+   junto con el resto de componentes de overlay; aquí solo se define el
+   estilo del texto disparador ("ZETips") como parte del contenido de
+   esta sección.
+   ======================================================================= */
+
+.split-pale { background: var(--pale); color: var(--black); }
+.split-pale p:not(.eyebrow) { color: rgba(0, 0, 0, 0.6); }
+.split-pale .h3-purple { color: var(--purple); }
+
+.split-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 72px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.split-media img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.tooltip-trigger {
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted var(--purple);
+  text-underline-offset: 3px;
+  color: inherit;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .split-inner { padding: 72px 32px; gap: 40px; }
+}
+
+@media (max-width: 767px) {
+  .split-inner {
+    grid-template-columns: 1fr;
+    padding: 56px 24px;
+    gap: 32px;
+  }
+  .split-media img { aspect-ratio: 4 / 3; }
+}
