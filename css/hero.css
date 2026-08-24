@@ -1,8 +1,9 @@
 /* =======================================================================
    ZETA — hero.css
-   Sección hero completa: texto, foto de Pablo (PNG con fondo
-   transparente, sin mix-blend-mode ni filter — ver README) con Ken
-   Burns, pill de stat.
+   Sección hero completa: texto (columna izquierda, fondo #0A0A0A) y
+   foto de Pablo tal cual (columna derecha, fondo blanco propio de la
+   imagen — sin mix-blend-mode, sin filter, sin overlays), con Ken
+   Burns y pill de stat.
    ======================================================================= */
 
 .hero {
@@ -12,17 +13,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
-  background-color: var(--black);
+  background-color: #0A0A0A;
+  overflow: hidden;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  background-color: #0A0A0A;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 20px;
   max-width: 620px;
-  padding: 96px 40px 96px 64px;
+  padding: 120px 48px 80px 64px;
   overflow: hidden;
 }
 
@@ -31,10 +35,6 @@
 .hero-content h1 {
   color: var(--white);
   font-size: 64px;
-  text-shadow:
-    0 0 40px rgba(10, 10, 10, 0.95),
-    0 0 80px rgba(10, 10, 10, 0.7),
-    0 2px 6px rgba(10, 10, 10, 0.9);
 }
 .hero-content h1 .accent { color: var(--lilac); }
 
@@ -44,10 +44,6 @@
   font-weight: 500;
   font-size: 17px;
   max-width: 480px;
-  text-shadow:
-    0 0 40px rgba(10, 10, 10, 0.95),
-    0 0 80px rgba(10, 10, 10, 0.7),
-    0 2px 6px rgba(10, 10, 10, 0.9);
 }
 
 .hero-ctas { display: flex; gap: 16px; margin: 8px 0 24px; flex-wrap: wrap; }
@@ -67,10 +63,6 @@
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 4px 12px;
-  text-shadow:
-    0 0 40px rgba(10, 10, 10, 0.95),
-    0 0 80px rgba(10, 10, 10, 0.7),
-    0 2px 6px rgba(10, 10, 10, 0.9);
 }
 
 /* Pill eyebrow "By BBVA. Para ti." — componente de un solo uso, vive
@@ -89,25 +81,41 @@
   background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  text-shadow:
-    0 0 40px rgba(10, 10, 10, 0.95),
-    0 0 80px rgba(10, 10, 10, 0.7),
-    0 2px 6px rgba(10, 10, 10, 0.9);
 }
 
+/* Columna de la foto: fondo blanco igual que la imagen (sin contraste
+   de bordes), esquina inferior izquierda redondeada para suavizar la
+   transición hacia la columna de texto. */
 .hero-media {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background-color: #0A0A0A;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 0 0 0 32px;
+}
+
+/* Separador visual suave entre el negro del texto y el blanco de la foto */
+.hero-media::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, #0A0A0A 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hero-img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: bottom center;
-  display: block;
   animation: kenBurns 14s ease-in-out infinite;
   transform-origin: center center;
   will-change: transform;
@@ -156,27 +164,27 @@
 
 @media (max-width: 767px) {
   .hero {
-    display: block;
-    position: relative;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #0A0A0A;
-    background-image: url('../assets/pablo.png');
-    background-size: contain;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    z-index: 0;
-  }
-  .hero-media { display: none; }
   .hero-content {
     max-width: 100%;
-    padding: 120px 24px 140px;
-    min-height: 100vh;
-    justify-content: flex-start;
+    padding: 100px 24px 32px;
+    order: 1;
   }
   .hero-content h1 { font-size: 36px; }
+  .hero-media {
+    order: 2;
+    height: 60vw;
+    min-height: 240px;
+    border-radius: 0;
+  }
+  .hero-media::before {
+    display: none;
+  }
+  .hero-img {
+    object-fit: contain;
+    object-position: center bottom;
+  }
   .hero-stat-pill { bottom: 24px; width: calc(100% - 32px); }
 }
