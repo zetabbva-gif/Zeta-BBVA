@@ -33,13 +33,16 @@
   gap: 32px;
 }
 .nav-links a {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--purple);
   font-size: 14px;
   font-weight: 500;
   padding: 8px 0;
-  transition: color var(--transition);
+  transition: color var(--transition), background var(--transition);
 }
-.nav-links a:hover,
+.nav-links a:hover {
+  color: var(--lilac);
+  background: rgba(123, 46, 255, 0.1);
+}
 .nav-links a.active {
   color: var(--lilac);
 }

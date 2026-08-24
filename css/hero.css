@@ -1,7 +1,8 @@
 /* =======================================================================
    ZETA — hero.css
-   Sección hero completa: texto, foto de Pablo con mix-blend-mode y
-   Ken Burns, pill de stat.
+   Sección hero completa: texto, foto de Pablo (PNG con fondo
+   transparente, sin mix-blend-mode ni filter — ver README) con Ken
+   Burns, pill de stat.
    ======================================================================= */
 
 .hero {
@@ -99,7 +100,6 @@
   height: 100%;
   overflow: hidden;
   background-color: #0A0A0A;
-  isolation: isolate;
 }
 
 .hero-img {
@@ -108,8 +108,6 @@
   object-fit: contain;
   object-position: bottom center;
   display: block;
-  mix-blend-mode: multiply;
-  filter: contrast(1.1) brightness(0.92);
   animation: kenBurns 14s ease-in-out infinite;
   transform-origin: center center;
   will-change: transform;
@@ -165,11 +163,11 @@
     content: '';
     position: absolute;
     inset: 0;
+    background-color: #0A0A0A;
     background-image: url('../assets/pablo.png');
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;
-    mix-blend-mode: multiply;
     z-index: 0;
   }
   .hero-media { display: none; }

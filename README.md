@@ -120,7 +120,7 @@ menú alternativo.
 | Archivo                     | Dónde se usa                              | Recomendación de tamaño / encuadre |
 |------------------------------|--------------------------------------------|--------------------------------------|
 | `assets/logo-zeta.png`       | Nav, footer, modales de login/registro, página de descarga | Logo con fondo transparente, formato horizontal (≈300×100 px) |
-| `assets/pablo.png`           | Foto de fondo a ancho completo del Hero    | Fondo blanco, figura centrada, sin texto superpuesto (se integra con `mix-blend-mode: multiply` sobre el fondo negro del hero) |
+| `assets/pablo.png`           | Foto del Hero (columna derecha)            | **PNG con fondo transparente (canal alpha)**, figura centrada, sin texto superpuesto — ver nota de remove.bg abajo |
 | `assets/foto-que-es.png`     | Sección "Qué es ZETA"                      | Foto horizontal, grupo de jóvenes en entorno urbano, mínimo 1000×1200 px |
 | `assets/foto-control.png`    | Sección "Toma el control"                  | Foto de un smartphone con la app, mínimo 1000×1200 px |
 | `assets/foto-simulador.png`  | Sección "Por qué ZETA"                     | Foto/mockup de interfaz gamificada, mínimo 1000×1200 px |
@@ -133,6 +133,18 @@ Si prefieres usar otro formato (JPG, WebP), actualiza también la extensión
 en el atributo `src` correspondiente dentro de `index.html` y de
 `download/index.html`, y en la regla `background-image` de `css/hero.css`
 (la que usa la versión mobile del hero).
+
+> **Nota sobre `assets/pablo.png`:** el hero ya no usa `mix-blend-mode` ni
+> `filter` — la imagen se muestra tal cual sobre el fondo `#0A0A0A` del
+> hero (`.hero-media` / `.hero::before` en `css/hero.css`), así que
+> necesita tener el fondo ya recortado en el propio archivo. La versión
+> actual del repo tiene el fondo quitado con un recorte automático por
+> color (funciona porque el fondo original era blanco liso), pero antes de
+> publicar a producción sustitúyela por una versión profesional: sube la
+> foto a [remove.bg](https://www.remove.bg/), descarga el PNG con canal
+> alpha resultante y sobrescribe `assets/pablo.png` manteniendo el mismo
+> nombre — dará un recorte más limpio en los bordes (pelo, dedos) que el
+> recorte automático.
 
 ## Cómo cambiar el QR placeholder por el real
 
