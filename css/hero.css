@@ -21,7 +21,7 @@
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 0;
   background-color: #0A0A0A;
   display: flex;
   flex-direction: column;
