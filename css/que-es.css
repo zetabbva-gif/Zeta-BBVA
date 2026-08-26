@@ -12,7 +12,6 @@
   padding: 72px 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #0A0A0A;
   gap: 64px;
   align-items: center;
 }
