@@ -81,7 +81,7 @@
   background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  max-width: 3rem;
+  max-width: 20rem;
 }
 
 .hero-media-container {
