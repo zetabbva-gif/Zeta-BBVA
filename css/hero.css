@@ -44,7 +44,6 @@
   font-family: var(--font-subheading);
   font-weight: 500;
   font-size: 17px;
-  max-width: 480px;
 }
 
 .hero-ctas { display: flex; gap: 16px; margin: 8px 0 24px; flex-wrap: wrap; }
@@ -82,6 +81,7 @@
   background: rgba(10, 10, 10, 0.45);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  max-width: 40vw;
 }
 
 .hero-media-container {
