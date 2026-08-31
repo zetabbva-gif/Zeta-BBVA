@@ -1,10 +1,13 @@
-/* =======================================================================
+/* =============================================================
    ZETA — testimoniales.css
-   Sección de testimoniales (tarjetas con schema.org/Review) y franja
-   de beneficios inmediatamente debajo.
-   ======================================================================= */
+   ============================================================= */
 
-.testimonials-section { background: var(--white); padding: 96px 0 0; }
+.testimonials-section {
+  background: var(--white);
+  padding: 96px 0 0;
+  position: relative;
+  z-index: 1;
+}
 
 .testimonials-header {
   max-width: var(--container-width);
@@ -14,21 +17,50 @@
 }
 .testimonials-header h2 { color: var(--black); }
 
-.testimonials-grid {
+/* ── Carrusel ─────────────────────────────────────── */
+.testimonials-carousel {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 40px 80px;
+  padding: 0 40px 48px;
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-track { transition: none; }
+}
+
+/* Cada slide ocupa el 100% del carrusel y muestra 3 tarjetas */
+.testimonials-slide {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Tarjeta ──────────────────────────────────────── */
+.testimonial-card {
+  background: var(--card-on-white-bg);
+  border: 1px solid var(--card-on-white-border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .testimoniales-image {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px; 
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
 }
-
 .testimoniales-image img {
   width: 100%;
   height: 100%;
@@ -38,34 +70,51 @@
   display: block;
 }
 
-.testimonial-card {
-  background: var(--card-on-white-bg);
-  border: 1px solid var(--card-on-white-border);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  margin: 0;
-}
-.quote-mark {
-  font-family: var(--font-heading);
-  font-size: 48px;
-  color: var(--lilac);
-  line-height: 1;
-  display: block;
-  margin-bottom: 8px;
-}
-.testimonial-card p {
+.testimonial-card p[itemprop="reviewBody"] {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--black);
-  line-height: 1.4;
+  line-height: 1.45;
+  flex: 1;
+  margin: 0;
 }
+
 .testimonial-card footer {
   font-family: var(--font-body);
   font-size: 13px;
   color: rgba(0, 0, 0, 0.55);
+  margin-top: auto;
 }
 
+/* ── Dots ─────────────────────────────────────────── */
+.testimonials-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.t-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(123, 46, 255, 0.2);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+.t-dot--active {
+  background: #7B2EFF;
+  transform: scale(1.3);
+}
+.t-dot:focus-visible {
+  outline: 2px solid #7B2EFF;
+  outline-offset: 3px;
+}
+
+/* ── Franja beneficios ────────────────────────────── */
 .benefits-strip {
   background: rgba(123, 46, 255, 0.07);
   padding: 20px 40px;
@@ -77,11 +126,22 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
+/* ── Responsive ───────────────────────────────────── */
 @media (max-width: 1024px) {
-  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-slide {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
-  .testimonials-grid { grid-template-columns: 1fr; padding: 0 24px 56px; }
-  .testimonials-header { padding: 0 24px 40px; }
+  .testimonials-carousel {
+    padding: 0 24px 40px;
+  }
+  .testimonials-slide {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .testimonials-header {
+    padding: 0 24px 40px;
+  }
 }
