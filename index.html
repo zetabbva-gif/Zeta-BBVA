@@ -397,19 +397,254 @@
 </main>
 
 <!-- ======================= FOOTER ======================= -->
+<!-- ======================= FOOTER ======================= -->
 <footer class="site-footer">
+
+  <!-- Franja superior: logo + tagline + nav legal -->
   <div class="footer-inner">
-    <a href="#hero" class="footer-logo" aria-label="ZETA — volver al inicio">
-      <img src="assets/logo-zeta.png" alt="ZETA" width="105" height="35">
+    <a href="#hero" class="footer-logo"
+       aria-label="ZETA — volver al inicio">
+      <img src="assets/logo-zeta.png" alt="ZETA"
+           width="105" height="35">
     </a>
-    <p class="footer-tagline">&ldquo;Invertir no es un riesgo cuando sabes lo que haces&rdquo;</p>
+    <p class="footer-tagline">
+      &ldquo;Invertir no es un riesgo cuando sabes
+      lo que haces&rdquo;
+    </p>
     <nav class="footer-links" aria-label="Enlaces legales">
-      <a href="#">Aviso legal</a>
-      <a href="#">Privacidad</a>
-      <a href="#">Cookies</a>
+      <button class="footer-expand-btn"
+              aria-expanded="false"
+              aria-controls="panel-terminos"
+              data-panel="panel-terminos">
+        Términos y condiciones
+      </button>
+      <button class="footer-expand-btn"
+              aria-expanded="false"
+              aria-controls="panel-faqs"
+              data-panel="panel-faqs">
+        FAQs
+      </button>
+      <button class="footer-expand-btn"
+              aria-expanded="false"
+              aria-controls="panel-aviso"
+              data-panel="panel-aviso">
+        Aviso legal
+      </button>
+      <button class="footer-expand-btn"
+              aria-expanded="false"
+              aria-controls="panel-cookies"
+              data-panel="panel-cookies">
+        Cookies
+      </button>
     </nav>
   </div>
-  <p class="footer-seo-line">ZETA by BBVA — App de banca digital para jóvenes en España · © 2026</p>
+
+  <!-- Paneles desplegables -->
+  <div class="footer-panels">
+
+    <!-- Términos y condiciones -->
+    <div class="footer-panel" id="panel-terminos"
+         role="region" aria-label="Términos y condiciones"
+         hidden>
+      <div class="footer-panel-inner">
+        <button class="footer-panel-close"
+                data-panel="panel-terminos"
+                aria-label="Cerrar términos y condiciones">
+          &times;
+        </button>
+        <h3>Términos y condiciones</h3>
+
+        <h4>1. Titularidad</h4>
+        <p>ZETA es un servicio de banca digital ofrecido por
+        BBVA S.A., entidad supervisada por el Banco de España
+        e inscrita en el Registro Mercantil de Vizcaya.</p>
+
+        <h4>2. Acceso y uso del servicio</h4>
+        <p>El acceso a ZETA está destinado a personas físicas
+        mayores de 18 años residentes en España. El usuario se
+        compromete a hacer un uso lícito del servicio y a no
+        facilitar datos falsos durante el proceso de registro.</p>
+
+        <h4>3. Registro y seguridad</h4>
+        <p>El usuario es responsable de mantener la
+        confidencialidad de sus credenciales de acceso.
+        ZETA nunca solicitará tu contraseña por email, teléfono
+        o cualquier otro canal externo a la app.</p>
+
+        <h4>4. Productos y servicios</h4>
+        <p>ZETA ofrece servicios de gestión de cuenta, ahorro e
+        inversión a través de productos regulados y supervisados
+        por el Banco de España y la CNMV. Las rentabilidades
+        históricas mostradas no garantizan rendimientos futuros.</p>
+
+        <h4>5. Protección de datos</h4>
+        <p>El tratamiento de tus datos personales se realiza
+        conforme al RGPD y la LOPDGDD. Puedes consultar nuestra
+        Política de Privacidad para conocer cómo recopilamos,
+        usamos y protegemos tu información.</p>
+
+        <h4>6. Modificaciones</h4>
+        <p>ZETA se reserva el derecho de modificar estos términos
+        con previo aviso. El uso continuado del servicio tras la
+        notificación implica la aceptación de los nuevos términos.</p>
+
+        <h4>7. Legislación aplicable</h4>
+        <p>Estos términos se rigen por la legislación española.
+        Para cualquier controversia, las partes se someten a los
+        juzgados y tribunales del domicilio del usuario.</p>
+      </div>
+    </div>
+
+    <!-- FAQs -->
+    <div class="footer-panel" id="panel-faqs"
+         role="region" aria-label="Preguntas frecuentes"
+         hidden>
+      <div class="footer-panel-inner">
+        <button class="footer-panel-close"
+                data-panel="panel-faqs"
+                aria-label="Cerrar FAQs">
+          &times;
+        </button>
+        <h3>Preguntas frecuentes</h3>
+
+        <div class="faq-item">
+          <h4>¿Qué es ZETA?</h4>
+          <p>ZETA es la app de banca digital de BBVA pensada para
+          jóvenes. Te permite aprender sobre finanzas, ahorrar
+          desde 1€ e invertir cuando estés listo, todo desde
+          una sola app y sin tecnicismos.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Es segura ZETA?</h4>
+          <p>Sí. ZETA está respaldada por BBVA, supervisada por
+          el Banco de España y protege tus datos con cifrado de
+          extremo a extremo. Tu dinero está tan seguro como en
+          cualquier banco tradicional.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Tiene comisiones?</h4>
+          <p>No. ZETA no cobra comisiones de mantenimiento ni de
+          operativa básica. Algunos productos de inversión pueden
+          tener comisiones propias, que siempre se informan antes
+          de contratar.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Cómo me registro?</h4>
+          <p>Descarga la app, introduce tu nombre, email y crea
+          una contraseña. El proceso de verificación de identidad
+          se completa dentro de la app en menos de 5 minutos
+          con tu DNI.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Desde qué edad puedo usar ZETA?</h4>
+          <p>ZETA está disponible para mayores de 18 años
+          residentes en España.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Qué pasa con mis datos?</h4>
+          <p>Tus datos se tratan conforme al RGPD. Nunca los
+          vendemos a terceros. Puedes ejercer tus derechos de
+          acceso, rectificación y cancelación en cualquier momento
+          desde la app o escribiendo a privacidad@zeta.bbva.es.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Puedo cancelar mi cuenta?</h4>
+          <p>Sí, en cualquier momento desde la app sin penalización
+          ni permanencia mínima.</p>
+        </div>
+        <div class="faq-item">
+          <h4>¿Los ZETips son consejos financieros?</h4>
+          <p>Los ZETips son sugerencias basadas en tus hábitos de
+          uso de la app. No constituyen asesoramiento financiero
+          regulado. Para decisiones de inversión significativas,
+          consulta con un asesor certificado.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aviso legal -->
+    <div class="footer-panel" id="panel-aviso"
+         role="region" aria-label="Aviso legal"
+         hidden>
+      <div class="footer-panel-inner">
+        <button class="footer-panel-close"
+                data-panel="panel-aviso"
+                aria-label="Cerrar aviso legal">
+          &times;
+        </button>
+        <h3>Aviso legal</h3>
+
+        <h4>Titular del sitio web</h4>
+        <p>BBVA S.A. — CIF: A-48265169<br>
+        Domicilio social: Calle Azul 4, 28050 Madrid, España<br>
+        Inscrita en el Registro Mercantil de Vizcaya.</p>
+
+        <h4>Objeto</h4>
+        <p>El presente sitio web tiene carácter meramente
+        informativo y promocional del servicio ZETA. La
+        contratación efectiva de productos y servicios se
+        realiza exclusivamente a través de la app oficial.</p>
+
+        <h4>Propiedad intelectual</h4>
+        <p>Todos los contenidos del sitio (textos, imágenes,
+        logotipos, diseño) son propiedad de BBVA S.A. o de
+        terceros que han autorizado su uso. Queda prohibida su
+        reproducción sin autorización expresa.</p>
+
+        <h4>Cookies</h4>
+        <p>Este sitio utiliza cookies técnicas necesarias y
+        cookies analíticas para mejorar la experiencia.
+        Puedes gestionar tus preferencias en el panel
+        de cookies.</p>
+
+        <h4>Rentabilidades</h4>
+        <p>Las rentabilidades históricas mencionadas en este
+        sitio corresponden a medias históricas de productos
+        de referencia y no garantizan rendimientos futuros.
+        Invertir conlleva riesgo de pérdida del capital.</p>
+
+        <h4>Contacto</h4>
+        <p>Para consultas legales: legal@zeta.bbva.es</p>
+      </div>
+    </div>
+
+    <!-- Cookies -->
+    <div class="footer-panel" id="panel-cookies"
+         role="region" aria-label="Política de cookies"
+         hidden>
+      <div class="footer-panel-inner">
+        <button class="footer-panel-close"
+                data-panel="panel-cookies"
+                aria-label="Cerrar política de cookies">
+          &times;
+        </button>
+        <h3>Política de cookies</h3>
+        <p>ZETA utiliza cookies para garantizar el correcto
+        funcionamiento del sitio y mejorar tu experiencia.</p>
+
+        <h4>Cookies técnicas</h4>
+        <p>Necesarias para el funcionamiento básico del sitio.
+        No requieren consentimiento y no pueden desactivarse.</p>
+
+        <h4>Cookies analíticas</h4>
+        <p>Nos ayudan a entender cómo interactúas con el sitio
+        para mejorar su rendimiento. Puedes desactivarlas sin
+        que afecte a la funcionalidad.</p>
+
+        <h4>Gestión de preferencias</h4>
+        <p>Puedes modificar tus preferencias de cookies en
+        cualquier momento desde el panel de configuración
+        de tu navegador o contactando con nosotros en
+        privacidad@zeta.bbva.es.</p>
+      </div>
+    </div>
+
+  </div><!-- /footer-panels -->
+
+  <p class="footer-seo-line">
+    ZETA by BBVA — App de banca digital para jóvenes
+    en España · © 2026
+  </p>
 </footer>
 
 <!-- ======================= OVERLAY TOOLTIP (mobile) ======================= -->
