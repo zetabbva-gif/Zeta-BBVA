@@ -1,55 +1,182 @@
-/* =======================================================================
+/* =============================================================
    ZETA — footer.css
-   Pie de página: logo, tagline, enlaces legales y línea SEO.
-   ======================================================================= */
+   ============================================================= */
 
-.site-footer { background: #050505; padding: 40px 0; }
+.site-footer {
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  z-index: 1;
+}
+
 .footer-inner {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  gap: 24px;
-}
-.footer-logo img { opacity: 0.5; }
-.footer-tagline {
-  margin: 0;
-  text-align: center;
-  font-style: italic;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
-}
-.footer-links {
+  padding: 32px 40px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
 }
-.footer-links a {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.25);
-  transition: color var(--transition);
-}
-.footer-links a:hover { color: var(--lilac); }
 
-.footer-seo-line {
+.footer-logo img { display: block; }
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Botones de los enlaces legales */
+.footer-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-expand-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s,
+              background 0.2s;
+  white-space: nowrap;
+}
+.footer-expand-btn:hover,
+.footer-expand-btn[aria-expanded="true"] {
+  color: #A855F7;
+  border-color: rgba(123,46,255,0.5);
+  background: rgba(123,46,255,0.08);
+}
+.footer-expand-btn:focus-visible {
+  outline: 2px solid #7B2EFF;
+  outline-offset: 3px;
+}
+
+/* Paneles desplegables */
+.footer-panels {
   max-width: var(--container-width);
-  margin: 24px auto 0;
-  padding: 16px 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-panel {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  animation: panelOpen 0.35s ease forwards;
+}
+
+.footer-panel[hidden] {
+  display: none;
+}
+
+@keyframes panelOpen {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-panel { animation: none; }
+}
+
+.footer-panel-inner {
+  padding: 32px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+    minmax(280px, 1fr));
+  gap: 24px 48px;
+  position: relative;
+}
+
+.footer-panel-close {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.4);
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  line-height: 1;
+}
+.footer-panel-close:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.footer-panel-close:focus-visible {
+  outline: 2px solid #7B2EFF;
+  outline-offset: 3px;
+}
+
+.footer-panel-inner h3 {
+  grid-column: 1 / -1;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: #fff;
+  margin: 0 0 8px;
+  padding-right: 48px;
+}
+
+.footer-panel-inner h4 {
+  font-family: var(--font-subheading);
+  font-size: 13px;
+  font-weight: 500;
+  color: #A855F7;
+  margin: 0 0 6px;
+}
+
+.footer-panel-inner p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* FAQ: cada item ocupa una celda */
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Línea SEO */
+.footer-seo-line {
   text-align: center;
   font-family: var(--font-body);
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255,255,255,0.12);
+  padding: 16px 40px 24px;
+  margin: 0;
 }
 
 @media (max-width: 767px) {
   .footer-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
     gap: 16px;
   }
-  .footer-logo { justify-self: center; }
-  .footer-links { justify-content: center; }
+  .footer-tagline { display: none; }
+  .footer-panels { padding: 0 24px; }
+  .footer-panel-inner {
+    grid-template-columns: 1fr;
+  }
+  .footer-seo-line { padding: 16px 24px 20px; }
 }
