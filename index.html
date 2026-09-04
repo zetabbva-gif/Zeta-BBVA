@@ -221,7 +221,6 @@
     </div>
   </section>
 
-  <!-- ======================= TESTIMONIALES ======================= -->
     <!-- ======================= TESTIMONIALES ======================= -->
   <section class="testimonials-section">
     <div class="testimonials-header">
@@ -388,41 +387,26 @@
 
       <div class="risk-indicator-header fade-up">
         <p class="eyebrow eyebrow-purple">Antes de continuar</p>
-        <h2>Indicador de riesgo de la Cuenta ZETA</h2>
+        <h2>Indicador de riesgo aplicable a la Cuenta ZETA</h2>
       </div>
 
-      <div class="risk-indicator-grid">
+      <div class="risk-box fade-up" style="transition-delay:.1s"
+           role="group"
+           aria-label="Indicador de riesgo del producto: nivel 1 de 6, el menor riesgo posible, y aviso del Fondo de Garantía de Depósitos">
 
-        <!-- Indicador numérico de riesgo (Orden ECC/2316/2015) -->
-        <div class="risk-scale-card fade-up" style="transition-delay:.1s">
-          <p class="risk-scale-label">Riesgo del producto</p>
-
-          <div class="risk-scale" role="img"
-               aria-label="Indicador de riesgo: nivel 1 de 6, el menor riesgo posible">
-            <span class="risk-step risk-step--1 risk-step--current">1</span>
-            <span class="risk-step risk-step--2">2</span>
-            <span class="risk-step risk-step--3">3</span>
-            <span class="risk-step risk-step--4">4</span>
-            <span class="risk-step risk-step--5">5</span>
-            <span class="risk-step risk-step--6">6</span>
-          </div>
-
-          <div class="risk-scale-endpoints">
-            <span>Menor riesgo</span>
-            <span>Mayor riesgo</span>
-          </div>
-
-          <p class="risk-scale-legend">
+        <div class="risk-box-score">
+          <p class="risk-score-number">1/6</p>
+          <p class="risk-score-legend">
             Este número es indicativo del riesgo del producto,
             siendo 1/6 indicativo del menor riesgo y 6/6 del
             mayor riesgo.
           </p>
         </div>
 
-        <!-- Aviso Fondo de Garantía de Depósitos -->
-        <div class="risk-fgd-card fade-up" style="transition-delay:.2s">
-          <p class="risk-fgd-label">Fondo de Garantía de Depósitos</p>
-          <p class="risk-fgd-text">
+        <div class="risk-box-divider" aria-hidden="true"></div>
+
+        <div class="risk-box-fgd">
+          <p>
             La Cuenta ZETA es un producto de BBVA, entidad
             adherida al
             <span class="placeholder">[NOMBRE OFICIAL DEL FONDO DE
