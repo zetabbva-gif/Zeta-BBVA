@@ -8,7 +8,7 @@
 
 .risk-indicator-section {
   background: var(--white);
-  padding: 88px 40px;
+  padding: 56px 40px;
   border-top: 1px solid rgba(10, 10, 10, 0.06);
 }
 
@@ -20,7 +20,7 @@
 .risk-indicator-header {
   text-align: center;
   max-width: 620px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
 }
 .risk-indicator-header h2 {
   color: var(--black);
@@ -44,15 +44,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 12px;
-  padding: 32px 24px;
+  gap: 8px;
+  padding: 20px 24px;
   background: var(--card-on-white-bg);
 }
 
 .risk-score-number {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 44px;
+  font-size: 36px;
   color: var(--purple);
   margin: 0;
 }
@@ -74,7 +74,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 32px 36px;
+  padding: 20px 36px;
 }
 .risk-box-fgd p {
   font-size: 14px;
@@ -85,7 +85,7 @@
 
 .risk-box-fgd .placeholder {
   background: rgba(245, 158, 11, 0.18);
-  border: 1px dashed #F59E0B;
+  border: 1px dashed #A855F7;
   border-radius: 4px;
   padding: 0 4px;
   color: #92400E;
