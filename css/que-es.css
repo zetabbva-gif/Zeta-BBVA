@@ -1,6 +1,6 @@
 /* =======================================================================
    ZETA — que-es.css
-   Sección "Qué es ZETA" (fondo blanco, imagen izquierda / texto derecha).
+   Sección "Qué es ZETA" (fondo lila pale, imagen izquierda / texto derecha).
    ======================================================================= */
 
 .split-pale { background: var(--pale); color: var(--black); }
