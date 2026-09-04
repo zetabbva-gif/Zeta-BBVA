@@ -76,6 +76,11 @@
   gap: 16px;
 }
 
+.testimonial-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .testimoniales-image {
   width: 64px;
   height: 64px;
@@ -89,7 +94,12 @@
   border: 2px solid #7B2EFF;
   display: block;
 }
-
+.star-rating {
+  color: var(--lilac);
+  font-size: 15px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
 .testimonial-card p[itemprop="reviewBody"] {
   font-family: var(--font-heading);
   font-weight: 800;
