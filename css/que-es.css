@@ -3,8 +3,9 @@
    Sección "Qué es ZETA" (fondo blanco, imagen izquierda / texto derecha).
    ======================================================================= */
 
-.split-light { background: var(--white); color: var(--black); }
-.split-light p:not(.eyebrow) { color: rgba(0, 0, 0, 0.55); }
+.split-pale { background: var(--pale); color: var(--black); }
+.split-pale p:not(.eyebrow) { color: rgba(0, 0, 0, 0.6); }
+.split-pale .h3-purple { color: var(--purple); }
 
 .split-inner {
   max-width: var(--container-width);
