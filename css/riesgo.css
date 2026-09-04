@@ -1,0 +1,105 @@
+/* =======================================================================
+   ZETA — riesgo.css
+   Indicador de riesgo del producto (1/6, Orden ECC/2316/2015) y aviso
+   del Fondo de Garantía de Depósitos. Caja sobria de dos columnas
+   separadas por un divisor, visible en la propia página, antes del
+   CTA de apertura de cuenta.
+   ======================================================================= */
+
+.risk-indicator-section {
+  background: var(--white);
+  padding: 88px 40px;
+  border-top: 1px solid rgba(10, 10, 10, 0.06);
+}
+
+.risk-indicator-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.risk-indicator-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+.risk-indicator-header h2 {
+  color: var(--black);
+  font-size: 28px;
+}
+
+/* ── Caja del indicador ──────────────────────────────── */
+.risk-box {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(10, 10, 10, 0.14);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.risk-box-score {
+  flex: 0 0 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 32px 24px;
+  background: var(--card-on-white-bg);
+}
+
+.risk-score-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 44px;
+  color: var(--purple);
+  margin: 0;
+}
+
+.risk-score-legend {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(10, 10, 10, 0.7);
+  margin: 0;
+}
+
+.risk-box-divider {
+  width: 1px;
+  background: rgba(10, 10, 10, 0.12);
+}
+
+.risk-box-fgd {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 32px 36px;
+}
+.risk-box-fgd p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--black);
+  margin: 0;
+}
+
+.risk-box-fgd .placeholder {
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px dashed #F59E0B;
+  border-radius: 4px;
+  padding: 0 4px;
+  color: #92400E;
+  font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .risk-box { flex-direction: column; }
+  .risk-box-score { flex: none; padding: 28px 24px; }
+  .risk-box-divider { width: 100%; height: 1px; }
+  .risk-box-fgd { padding: 28px 24px; }
+}
+
+@media (max-width: 767px) {
+  .risk-indicator-section { padding: 64px 24px; }
+  .risk-indicator-header h2 { font-size: 24px; }
+}
