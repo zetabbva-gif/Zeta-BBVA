@@ -48,6 +48,15 @@
   font-size: 18px;
   box-sizing: border-box;
 }
+.cta-qr-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cta-mobile-btn {
+  display: none;
+}
 .cta-qr-label {
   margin: 8px 0 0;
   font-size: 15px;
@@ -63,4 +72,16 @@
 @media (max-width: 767px) {
   .cta-final { padding: 64px 24px; }
   .cta-final h3 { font-size: 30px; }
+  .cta-qr { display: none; }
+
+  .cta-mobile-btn {
+    display: inline-flex;
+    margin: 40px 0 0;
+    background: var(--white);
+    color: var(--purple);
+  }
+  .cta-mobile-btn:hover,
+  .cta-mobile-btn:focus-visible {
+    background: var(--pale);
+  }
 }
